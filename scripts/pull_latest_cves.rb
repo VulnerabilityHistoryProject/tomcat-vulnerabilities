@@ -26,7 +26,7 @@ class PullLatestCVEs
   end
 
   def get_svn_commit(link)
-    link.href.upcase.match(/(?<svnid>\d+)/)[:svnid].to_i
+    link.href.upcase.match(/(?<svnid>\d+)/)[:svnid]
   end
 
   def crawl(url)
@@ -35,13 +35,11 @@ class PullLatestCVEs
       cur_cve = 'REPLACEME'
       page.links.each do | link |
         if is_cve?(link)
-          # byebug
           cur_cve = get_cve(link)
           cves[cur_cve] = []
         else
           if is_svn?(link)
             cves[cur_cve] << get_svn_commit(link)
-            # byebug
           end
         end
       end
@@ -49,10 +47,18 @@ class PullLatestCVEs
     return cves
   end
 
-  def save(cves)
-    puts cves
-    cves.each do |cve, fixes|
+  def fix_ymlstr(fixes)
+    fixes.inject("fixes:\n") do |str, fix|
+      str + "   - commit: " + fix + "\n"
+    end
+  end
 
+  def save(cves)
+    byebug
+    cves.each do |cve, fixes|
+      next if cve_yaml_exists?(cve)
+      ymlstr = cve_skeleton_yml.sub(fix_skeleton, fix_ymlstr(fixes))
+      File.open(as_filename(cve), 'w+') { |f| f.write(ymlstr) }
     end
   end
 
