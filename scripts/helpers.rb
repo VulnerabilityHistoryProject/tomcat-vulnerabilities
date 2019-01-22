@@ -17,7 +17,7 @@ end
 
 def svn_id_to_git_sha(svn_id)
   Dir.chdir(repo_dir) do
-    `git log --pretty="%H" --grep="tomcat/trunk@#{svn_id} ` # note final space!!
+    `git log --pretty="%H" --grep="tomcat/trunk@#{svn_id} `.strip # note final space!!
   end
 end
 
