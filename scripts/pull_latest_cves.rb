@@ -50,7 +50,9 @@ class PullLatestCVEs
 
   def fix_ymlstr(fixes)
     fixes.inject("fixes:\n") do |str, fix|
-      str + "   - commit: #{fix}\n     note: Taken from Tomcat website.\n"
+      git_sha = svn_id_to_git_sha(fix)
+      str + "   - commit: #{git_sha}\n" +
+            "     note: SVN rev #{fix}, from the Tomcat website.\n"
     end
   end
 

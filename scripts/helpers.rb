@@ -11,6 +11,16 @@ def cve_skeleton_yml
   File.read(File.expand_path('../skeletons/cve.yml', __dir__))
 end
 
+def repo_dir
+  File.expand_path('../tmp/tomcat', __dir__)
+end
+
+def svn_id_to_git_sha(svn_id)
+  Dir.chdir(repo_dir) do
+    `git log --pretty="%H" --grep="tomcat/trunk@#{svn_id} ` # note final space!!
+  end
+end
+
 def fix_skeleton
   <<~EOS
     fixes:
