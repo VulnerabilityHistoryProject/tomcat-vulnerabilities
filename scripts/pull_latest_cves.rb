@@ -30,6 +30,7 @@ class PullLatestCVEs
   end
 
   def crawl(url)
+    puts "Crawling #{url}"
     cves = {}
     Mechanize.new.get(url) do |page|
       cur_cve = 'REPLACEME'
@@ -49,16 +50,17 @@ class PullLatestCVEs
 
   def fix_ymlstr(fixes)
     fixes.inject("fixes:\n") do |str, fix|
-      str + "   - commit: " + fix + "\n"
+      str + "   - commit: #{fix}\n     note: Taken from Tomcat website.\n"
     end
   end
 
   def save(cves)
-    byebug
     cves.each do |cve, fixes|
       next if cve_yaml_exists?(cve)
       ymlstr = cve_skeleton_yml.sub(fix_skeleton, fix_ymlstr(fixes))
+                               .sub("CVE:\n", "CVE: #{cve}\n")
       File.open(as_filename(cve), 'w+') { |f| f.write(ymlstr) }
+      puts "Saved #{as_filename(cve)}"
     end
   end
 

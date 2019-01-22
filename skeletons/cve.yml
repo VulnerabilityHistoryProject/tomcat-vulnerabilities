@@ -1,14 +1,17 @@
 CVE:
+
 nickname_instructions: |
   Nickname is optional. Provide a useful, professional, and catchy nickname for
   this vulnerability. Ideally fewer than 30 characters. This will be shown
   alongside its CVE to make it more easily distinguished from the rest.
 nickname:
+
 CWE_instructions: |
   Please go to cwe.mitre.org and find the most specific, appropriate CWE entry
   that describes your vulnerability. (Tip: this may not be a good one to start
   with - spend time understanding this vulnerability before making your choice!)
 CWE:
+
 curated_instructions: |
   If you are manually editing this file, then you are "curating" it. Set the
   entry below to "true" as soon as you start. This will enable additional
@@ -16,13 +19,19 @@ curated_instructions: |
   If you are a student, we cannot accept your work as finished unless curated is
   set to true.
 curated: false
+
+reported_instructions: |
+  Was there a date that this vulnerability was reported to the team? You can
+  find this in changelogs, blogs, bug reports, or perhaps the CVE data.
+  Please enter your date in YYYY-MM-DD format.
+reported:
+
 announced_instructions: |
   Was there a date that this vulnerability was announced to the world? You can
-  find this in changelogs, blogs, bug reports, or perhaps the CVE date. A good
-  source for this is Chrome's Stable Release Channel
-  (https://chromereleases.googleblog.com/).
+  find this in changelogs, blogs, bug reports, or perhaps the CVE data.
   Please enter your date in YYYY-MM-DD format.
 announced:
+
 description_instructions: |
   You can get an initial description from the CVE entry on cve.mitre.org. These
   descriptions are a fine start, but they can be kind of jargony.
@@ -35,6 +44,7 @@ description_instructions: |
   expressions" is fine, and security phrases like "invalid write" are fine to
   keep too.
 description:
+
 bounty_instructions: |
   If you came across any indications that a bounty was paid out for this
   vulnerability, fill it out here. Or correct it if the information already here
@@ -43,12 +53,10 @@ bounty:
   amt:
   announced:
   url:
-reviews: []
 bugs: []
-repo:
 fixes_vcc_instructions: |
-  Please put the commit hash in "commit" below (see my example in
-  CVE-2011-3092.yml). Fixes and VCCs follow the same format.
+  Please put the SVN commit number in "commit" below, and any notes about how this
+  was discovered in the "note" field.
 fixes:
    - commit:
      note:
@@ -59,9 +67,10 @@ vccs:
     note:
   - commit:
     note:
+
 upvotes_instructions: |
-  For the first round, ignore this upvotes number.
-  For the second round of reviewing, you will be giving a certain amount of
+  Students: when initially writing this, ignore this upvotes number.
+  Once this work is being reviewed, you will be giving a certain amount of
   upvotes to each vulnerability you see. Your peers will tell you how
   interesting they think this vulnerability is, and you'll add that to the
   upvotes score on your branch.
@@ -72,11 +81,13 @@ unit_tested:
     Were automated unit tests involved in this vulnerability?
     Was the original code unit tested, or not unit tested? Did the fix involve
     improving the automated tests?
+    Write the reasoning behind your answer in the "answer" field.
     For the "code" answer below, look not only at the fix but the surrounding
     code near the fix and determine if and was there were unit tests involved
-    for this module.
+    for this module. Must be just "true" or "false".
     For the "fix" answer below, check if the fix for the vulnerability involves
     adding or improving an automated test to ensure this doesn't happen again.
+    Must be just "true" or "false".
   answer:
   code:
   fix:
@@ -121,20 +132,6 @@ interesting_commits:
       note:
     - commit:
       note:
-
-major_events:
-  question: |
-    Please record any major events you found in the history of this
-    vulnerability. Was the code rewritten at some point? Was a nearby subsystem
-    changed? Did the team change?
-    The event doesn't need to be directly related to this vulnerability, rather,
-    we want to capture what the development team was dealing with at the time.
-  answer:
-  events:
-    - name:
-      date:
-    - name:
-      date:
 
 lessons:
   question: |

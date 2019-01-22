@@ -12,11 +12,13 @@ def cve_skeleton_yml
 end
 
 def fix_skeleton
-  "fixes:
-     - commit:
-       note:
-     - commit:
-       note:"
+  <<~EOS
+    fixes:
+       - commit:
+         note:
+       - commit:
+         note:
+  EOS
 end
 
 # Replace text in an entire file
