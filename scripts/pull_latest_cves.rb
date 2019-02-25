@@ -48,18 +48,25 @@ class PullLatestCVEs
     return cves
   end
 
-  def fix_ymlstr(fixes)
-    fixes.inject("fixes:\n") do |str, fix|
+  def fix_ymlstr(cve, fixes)
+    ymlstr = fixes.inject("") do |str, fix|
       git_sha = svn_id_to_git_sha(fix)
-      str + "   - commit: #{git_sha}\n" +
-            "     note: SVN rev #{fix}, from the Tomcat website.\n"
+      if git_sha.empty?
+        puts "WARN: git sha for svn r#{fix} not found in any repo for #{cve}"
+        ''
+      else
+        str +
+          "   - commit: #{git_sha}\n" +
+          "     note: SVN rev #{fix}, from the Tomcat website.\n"
+      end
     end
+    return "fixes:\n" + ymlstr + "   - commit:\n     note:\n"
   end
 
   def save(cves)
     cves.each do |cve, fixes|
       next if cve_yaml_exists?(cve)
-      ymlstr = cve_skeleton_yml.sub(fix_skeleton, fix_ymlstr(fixes))
+      ymlstr = cve_skeleton_yml.sub(fix_skeleton, fix_ymlstr(cve, fixes))
                                .sub("CVE:\n", "CVE: #{cve}\n")
       File.open(as_filename(cve), 'w+') { |f| f.write(ymlstr) }
       puts "Saved #{as_filename(cve)}"

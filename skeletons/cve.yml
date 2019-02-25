@@ -55,8 +55,9 @@ bounty:
   url:
 bugs: []
 fixes_vcc_instructions: |
-  Please put the SVN commit number in "commit" below, and any notes about how this
+  Please put the Git commit SHA in "commit" below, and any notes about how this
   was discovered in the "note" field.
+  Refer to our instructions on how to find a Git SHA from an SVN revision.
 fixes:
    - commit:
      note:
