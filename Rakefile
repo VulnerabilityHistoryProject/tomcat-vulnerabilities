@@ -10,10 +10,11 @@ RSpec::Core::RakeTask.new(:spec)
 
 namespace :pull do
 
-  desc 'Initialize CVE ymls from Tomcat website'
-  task :cves do
-    PullLatestCVEs.new.run
-  end
+  # Commented out for travis build
+  # desc 'Initialize CVE ymls from Tomcat website'
+  # task :cves do
+  #   PullLatestCVEs.new.run
+  # end
 
   desc 'Clone all the Tomcat source repos'
   task :repo do
