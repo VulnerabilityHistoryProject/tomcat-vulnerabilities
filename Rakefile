@@ -1,8 +1,8 @@
 require 'byebug'
 require 'require_all'
 require 'rspec/core/rake_task'
-require 'curate_ready'
-require 'helpers'
+require_relative 'scripts/curate_ready'
+require_relative 'scripts/helpers'
 
 # removed because of travis mechanize issues
 #require_rel 'scripts'
