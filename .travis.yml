@@ -3,4 +3,5 @@ sudo: false
 cache: bundler
 rvm:
 - 2.5.0
-script: bundle exec rake
+script: bundle exec rake spec
+
