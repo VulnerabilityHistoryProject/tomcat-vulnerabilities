@@ -13,7 +13,7 @@ task default: :spec
 RSpec::Core::RakeTask.new(:spec)
 
 namespace :pull do
-
+  
   # Commented out for travis build
   # desc 'Initialize CVE ymls from Tomcat website'
   # task :cves do
