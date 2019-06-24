@@ -1,0 +1,14 @@
+name: Tomcat
+fullname: Apache Tomcat
+subdomain: tomcat
+bg_color: '#d2a41f'
+project_url: http://tomcat.apache.org/
+description: |
+  "The Apache Tomcat® software is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies" -http://tomcat.apache.org/
+git_commit_url_prefix: https://github.com/apache/tomcat/commit/
+github_search_url_prefix: https://github.com/apache/tomcat/search?utf8=✓&q=
+github_edit_cve_url_prefix: https://github.com/VulnerabilityHistoryProject/tomcat-vulnerabilities/edit/dev/cves/
+vulnerabilities_description: |
+  These vulnerabilities are reported by the Apache Tomcat team [on their website](http://tomcat.apache.org/security.html)
+developers_description: |
+  The following is a list of developers who are involved in code that was found to be vulnerable. Specifically, developers end up here if they were the author of a commit to code that was, at some point in time, fixed for a vulnerability. Note that this is NOT a comprehensive list.
