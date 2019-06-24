@@ -5,6 +5,6 @@ PUBDATE=`curl -s https://nvd.nist.gov/vuln/detail/$1 | grep 'vuln-published-on' 
 
 echo "Replacing ..."
 
-sed "s@announced_date:@announced: $PUBDATE@g" cves/$1.yml > tmp.txt
+sed "s@announced:@announced: $PUBDATE@g" cves/$1.yml > tmp.txt
 
 mv tmp.txt cves/$1.yml
