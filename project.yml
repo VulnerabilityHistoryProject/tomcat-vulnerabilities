@@ -2,6 +2,7 @@ name: Tomcat
 fullname: Apache Tomcat
 subdomain: tomcat
 bg_color: '#d2a41f'
+fg_color: '#d2a41f'
 project_url: http://tomcat.apache.org/
 description: |
   "The Apache Tomcat® software is an open source implementation of the Java Servlet, JavaServer Pages, Java Expression Language and Java WebSocket technologies" -http://tomcat.apache.org/
