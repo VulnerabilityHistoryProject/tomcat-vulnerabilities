@@ -5,7 +5,7 @@ require_relative 'scripts/curate_ready'
 require_relative 'scripts/helpers'
 
 # removed because of travis mechanize issues
-#require_rel 'scripts'
+require_rel 'scripts'
 
 desc 'Run the specs by default'
 task default: :spec
@@ -15,10 +15,10 @@ RSpec::Core::RakeTask.new(:spec)
 namespace :pull do
 
   # Commented out for travis build
-  # desc 'Initialize CVE ymls from Tomcat website'
-  # task :cves do
-  #   PullLatestCVEs.new.run
-  # end
+  desc 'Initialize CVE ymls from Tomcat website'
+  task :cves do
+    PullLatestCVEs.new.run
+  end
 
   desc 'Clone all the Tomcat source repos'
   task :repo do
