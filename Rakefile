@@ -25,9 +25,7 @@ namespace :pull do
     Dir.chdir("tmp/") do
       `git clone https://github.com/apache/tomcat.git`
       `git clone https://github.com/apache/tomcat55.git`
-      `git clone https://github.com/apache/tomcat70.git`
       `git clone https://github.com/apache/tomcat80.git`
-      `git clone https://github.com/apache/tomcat85.git`
     end
   end
 end

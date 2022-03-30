@@ -4,7 +4,7 @@ Curated vulnerability data for vulnerabilityhistory.org
 
 # Clone the Repos
 
-Tomcat has three repos, one for each of its active products (7,8,9)
+Tomcat has three available repos, one for its current version and two archived versions (5.5 and 8.0)
 
 When you do:
 
