@@ -22,7 +22,7 @@ class PullLatestCVEs
   end
 
   def get_cve(link)
-    link.href.upcase.match( /(?<cvekey>CVE-[\-\d]+)/ )[:cvekey]
+    /(?<cvekey>CVE-[\-\d]+)/.match( link.href.upcase )[:cvekey]
   end
 
   def get_svn_commit(link)

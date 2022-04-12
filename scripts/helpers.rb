@@ -16,7 +16,7 @@ def cve_skeleton_yml
 end
 
 def repo_dirs
-  %w(tomcat55 tomcat70 tomcat80 tomcat85 tomcat).map do |t|
+  %w(tomcat55 tomcat80 tomcat).map do |t|
     File.expand_path("../tmp/#{t}", __dir__)
   end
 end
