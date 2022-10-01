@@ -1,3 +1,5 @@
 /.byebug_history
 /tmp/tomcat
 /tmp/tomcat*
+/tmp/src
+.DS_Store
